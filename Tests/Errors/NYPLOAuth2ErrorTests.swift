@@ -1,3 +1,8 @@
+//
+//  NYPLOAuth2ErrorTests.swift
+//  Copyright © 2020 NYPL Labs. All rights reserved.
+//
+
 import XCTest
 @testable import NYPLUtilities
 

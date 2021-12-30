@@ -4,24 +4,30 @@
 import PackageDescription
 
 let package = Package(
-    name: "NYPLUtilities",
-    platforms: [.iOS(.v10), .macOS(.v10_12)],
-    products: [
-        .library(
-            name: "NYPLUtilities",
-            type: .dynamic,
-            targets: ["NYPLUtilities"]),
-    ],
-    targets: [
-        .target(
-            name: "NYPLUtilities",
-            dependencies: [],
-            path: "Sources"
-        ),
-        .testTarget(
-            name: "NYPLUtilitiesTests",
-            dependencies: ["NYPLUtilities"],
-            path: "Tests"
-        ),
-    ]
+  name: "NYPLUtilities",
+  platforms: [.iOS(.v10), .macOS(.v10_12)],
+  products: [
+    .library(
+      name: "NYPLUtilities",
+      type: .dynamic,
+      targets: ["NYPLUtilities"]),
+  ],
+  targets: [
+    .target(
+      name: "NYPLUtilitiesObjc",
+      dependencies: [],
+      path: "ObjC",
+      sources: ["Sources"]
+    ),
+    .target(
+      name: "NYPLUtilities",
+      dependencies: ["NYPLUtilitiesObjc"],
+      path: "Sources"
+    ),
+    .testTarget(
+      name: "NYPLUtilitiesTests",
+      dependencies: ["NYPLUtilities"],
+      path: "Tests"
+    ),
+  ]
 )

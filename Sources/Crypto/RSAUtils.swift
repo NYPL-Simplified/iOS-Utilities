@@ -1,5 +1,6 @@
 import Foundation
 import CommonCrypto
+import NYPLUtilitiesObjc
 
 public class RSAUtils {
   public class func SHA256HashedData(from data: NSData) -> NSData {
@@ -13,5 +14,11 @@ public class RSAUtils {
     let fullRange = NSRange(location: 0, length: key.lengthOfBytes(using: .utf8))
     let regExp = try! NSRegularExpression(pattern: "(-----BEGIN.*?-----)|(-----END.*?-----)|\\s+", options: [])
     return regExp.stringByReplacingMatches(in: key, options: [], range: fullRange, withTemplate: "")
+  }
+}
+
+extension String {
+  public var sha256: String? {
+    NYPLStringAdditions.sha256forString(self)
   }
 }
