@@ -1,7 +1,5 @@
 //
-//  String+NYPLAdditionsTests.swift
-//  SimplyETests
-//
+//  String+MD5Tests.swift
 //  Created by Ettore Pasquini on 4/8/20.
 //  Copyright © 2020 NYPL Labs. All rights reserved.
 //
