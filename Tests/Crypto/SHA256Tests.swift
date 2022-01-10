@@ -1,7 +1,7 @@
 //
 //  SHA256Tests.swift
 //  Created by Ettore Pasquini on 12/29/21.
-//  Copyright © 2020 NYPL Labs. All rights reserved.
+//  Copyright © 2020 NYPL. All rights reserved.
 //
 
 import Foundation
