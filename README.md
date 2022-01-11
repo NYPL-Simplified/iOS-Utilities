@@ -14,6 +14,10 @@ This is a collection of utilities used at NYPL in the [Simplified](https://githu
 - iOS 10+
 - Swift 5
 
+## Integration
+
+The only supported way for integrating this project is by using Swift Package Manager. The Xcode project is deprecated.
+
 ## License
 
 This code is available under the Apache License, Version 2.0. See the [LICENSE](LICENSE) file for more info.
