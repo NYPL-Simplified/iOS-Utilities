@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17123D5227D2B95200088193 /* CwlDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17123D5127D2B95200088193 /* CwlDispatch.swift */; };
 		7350A8D127694FD6003CCE46 /* NYPLUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7350A8C627694FD6003CCE46 /* NYPLUtilities.framework */; };
 		73DE15952771304A0061D12F /* RSAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE158F2771304A0061D12F /* RSAUtils.swift */; };
 		73DE15962771304A0061D12F /* Data+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE15912771304A0061D12F /* Data+Base64.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17123D5127D2B95200088193 /* CwlDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlDispatch.swift; sourceTree = "<group>"; };
 		7350A8C627694FD6003CCE46 /* NYPLUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NYPLUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7350A8D027694FD6003CCE46 /* NYPLUtilitiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYPLUtilitiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DE158F2771304A0061D12F /* RSAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSAUtils.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17123D5027D2B91200088193 /* DispatchSource */ = {
+			isa = PBXGroup;
+			children = (
+				17123D5127D2B95200088193 /* CwlDispatch.swift */,
+			);
+			path = DispatchSource;
+			sourceTree = "<group>";
+		};
 		7350A8BC27694FD6003CCE46 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		73DE158D2771304A0061D12F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				17123D5027D2B91200088193 /* DispatchSource */,
 				73DE158E2771304A0061D12F /* Crypto */,
 				73DE15902771304A0061D12F /* Strings */,
 				73DE15932771304A0061D12F /* Errors */,
@@ -254,6 +265,7 @@
 				73DE15952771304A0061D12F /* RSAUtils.swift in Sources */,
 				73DE15972771304A0061D12F /* String+MD5.swift in Sources */,
 				73DE15962771304A0061D12F /* Data+Base64.swift in Sources */,
+				17123D5227D2B95200088193 /* CwlDispatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
