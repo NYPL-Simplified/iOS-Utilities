@@ -21,12 +21,15 @@ class NYPLRepeatingTimer {
   
   private var timer: DispatchSourceTimer
   
+  private var serialQueue: DispatchQueue
+  
   init(interval: DispatchTimeInterval,
        leeway: DispatchTimeInterval = .nanoseconds(0),
        queue: DispatchQueue = DispatchQueue.global(),
        handler: @escaping () -> Void) {
     timer = DispatchSource.repeatingTimer(interval: interval, leeway: leeway, queue: queue, handler: handler)
     state = .resumed
+    serialQueue = DispatchQueue(label: "org.nypl.labs.iOSUtilities.repeatingTimer")
   }
   
   deinit {
@@ -42,21 +45,25 @@ class NYPLRepeatingTimer {
     // Make sure timer is in the right state,
     // calling resume or suspend twice in a row will cause a crash
     // ref: https://developer.apple.com/forums/thread/15902?answerId=669654022#669654022
-    guard state == .suspended else {
-      return
+    serialQueue.sync {
+      guard state == .suspended else {
+        return
+      }
+      state = .resumed
+      timer.resume()
     }
-    state = .resumed
-    timer.resume()
   }
   
   func suspend() {
     // Make sure timer is in the right state,
     // calling resume or suspend twice in a row will cause a crash
     // ref: https://developer.apple.com/forums/thread/15902?answerId=669654022#669654022
-    guard state == .resumed else {
-      return
+    serialQueue.sync {
+      guard state == .resumed else {
+        return
+      }
+      state = .suspended
+      timer.suspend()
     }
-    state = .suspended
-    timer.suspend()
   }
 }
