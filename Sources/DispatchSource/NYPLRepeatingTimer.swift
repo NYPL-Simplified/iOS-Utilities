@@ -7,7 +7,7 @@
 
 import Foundation
 
-private enum NYPLTimerState {
+enum NYPLTimerState {
   case resumed
   case suspended
 }
@@ -17,7 +17,7 @@ private enum NYPLTimerState {
 // releasing, resuming or suspending the timer in the incorrect state.
 class NYPLRepeatingTimer {
   
-  private var state: NYPLTimerState
+  private(set) var state: NYPLTimerState
   
   private var timer: DispatchSourceTimer
   

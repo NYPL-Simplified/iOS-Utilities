@@ -19,6 +19,18 @@ class NYPLRepeatingTimerTests: XCTestCase {
   override func tearDown() {
     timer = nil
   }
+  
+  func testTimerResumeAndSuspend() throws {
+    XCTAssertEqual(timer.state, .resumed)
+    
+    timer.suspend()
+    
+    XCTAssertEqual(timer.state, .suspended)
+    
+    timer.resume()
+    
+    XCTAssertEqual(timer.state, .resumed)
+  }
 
   func testTimerResumeMultipleCall() throws {
     timer.resume()
@@ -26,7 +38,7 @@ class NYPLRepeatingTimerTests: XCTestCase {
     timer.resume()
     timer.resume()
     
-    XCTAssert(true)
+    XCTAssertEqual(timer.state, .resumed)
   }
   
   func testTimerSuspendMultipleCall() throws {
@@ -35,7 +47,7 @@ class NYPLRepeatingTimerTests: XCTestCase {
     timer.suspend()
     timer.suspend()
     
-    XCTAssert(true)
+    XCTAssertEqual(timer.state, .suspended)
   }
 
 }
