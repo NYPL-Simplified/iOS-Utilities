@@ -15,7 +15,7 @@ enum NYPLTimerState {
 // This is a wrapper class of DispatchSourceTimer.
 // It keeps track of the state of the timer to avoid crash from
 // releasing, resuming or suspending the timer in the incorrect state.
-class NYPLRepeatingTimer {
+public class NYPLRepeatingTimer {
   
   private(set) var state: NYPLTimerState
   
@@ -23,7 +23,7 @@ class NYPLRepeatingTimer {
   
   private var serialQueue: DispatchQueue
   
-  init(interval: DispatchTimeInterval,
+  public init(interval: DispatchTimeInterval,
        leeway: DispatchTimeInterval = .nanoseconds(0),
        queue: DispatchQueue = DispatchQueue.global(),
        handler: @escaping () -> Void) {
@@ -41,7 +41,7 @@ class NYPLRepeatingTimer {
     }
   }
   
-  func resume() {
+  public func resume() {
     // Make sure timer is in the right state,
     // calling resume or suspend twice in a row will cause a crash
     // ref: https://developer.apple.com/forums/thread/15902?answerId=669654022#669654022
@@ -54,7 +54,7 @@ class NYPLRepeatingTimer {
     }
   }
   
-  func suspend() {
+  public func suspend() {
     // Make sure timer is in the right state,
     // calling resume or suspend twice in a row will cause a crash
     // ref: https://developer.apple.com/forums/thread/15902?answerId=669654022#669654022
