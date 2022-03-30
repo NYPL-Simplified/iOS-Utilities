@@ -23,11 +23,16 @@ class NYPLOAuthAccessTokenTests: XCTestCase {
       XCTFail("Failed to parse valid token as nonLossyASCII")
       return
     }
-    let token = NYPLOAuthAccessToken.fromData(data)
-    XCTAssertNotNil(token)
-    XCTAssertEqual(token?.accessToken, "cazzo.strunz")
-    XCTAssertEqual(token?.expiresIn, 3600)
-    XCTAssertEqual(token?.tokenType, "Bearer")
+    guard let token = NYPLOAuthAccessToken.fromData(data) else {
+      XCTFail("nil token! Probably a parse failure")
+      return
+    }
+    XCTAssertEqual(token.accessToken, "cazzo.strunz")
+    XCTAssertEqual(token.expiresIn, 3600)
+    XCTAssertEqual(token.tokenType, "Bearer")
+    XCTAssertGreaterThan(token.expiration, token.creation)
+    XCTAssertGreaterThan(token.expiration, Date(timeInterval: token.expiresIn - 1, since: Date()))
+    XCTAssertLessThan(token.expiration, Date(timeInterval: token.expiresIn, since: Date()))
   }
 
   func testOAuthAccessTokenParsingUTF8() {
@@ -35,10 +40,15 @@ class NYPLOAuthAccessTokenTests: XCTestCase {
       XCTFail("Failed to parse valid token as utf8")
       return
     }
-    let token = NYPLOAuthAccessToken.fromData(data)
-    XCTAssertNotNil(token)
-    XCTAssertEqual(token?.accessToken, "cazzo.strunz")
-    XCTAssertEqual(token?.expiresIn, 3600)
-    XCTAssertEqual(token?.tokenType, "Bearer")
+    guard let token = NYPLOAuthAccessToken.fromData(data) else {
+      XCTFail("nil token! Probably a parse failure")
+      return
+    }
+    XCTAssertEqual(token.accessToken, "cazzo.strunz")
+    XCTAssertEqual(token.expiresIn, 3600)
+    XCTAssertEqual(token.tokenType, "Bearer")
+    XCTAssertGreaterThan(token.expiration, token.creation)
+    XCTAssertGreaterThan(token.expiration, Date(timeInterval: token.expiresIn - 1, since: Date()))
+    XCTAssertLessThan(token.expiration, Date(timeInterval: token.expiresIn, since: Date()))
   }
 }
