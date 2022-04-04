@@ -8,7 +8,11 @@ import Foundation
 
 public struct NYPLOAuthAccessToken: Decodable {
   public let accessToken: String
-  public let expiresIn: TimeInterval? // Optional because non-essential
+  public let expiresIn: TimeInterval
+  public let creation = Date()
+  public var expiration: Date {
+    return Date(timeInterval: expiresIn, since: creation)
+  }
 
   private let tokenTypeInternal: String?
 
