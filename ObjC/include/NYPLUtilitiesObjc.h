@@ -8,5 +8,6 @@
 #define NYPLUtilitiesObjc_h
 
 #include "../Sources/Crypto/NYPLStringAdditions.h"
+#include "../Sources/Network/NYPLReachabilityManager.h"
 
 #endif /* NYPLUtilitiesObjc_h */
