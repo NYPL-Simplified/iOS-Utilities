@@ -43,6 +43,8 @@
  Copyright (C) 2016 Apple Inc. All Rights Reserved.
  */
 
+@import Foundation;
+
 #if TARGET_OS_IPHONE
 
 #import <arpa/inet.h>
