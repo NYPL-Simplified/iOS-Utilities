@@ -10,6 +10,7 @@ import CryptoKit
 @testable import NYPLUtilities
 
 class SHA256Tests: XCTestCase {
+  @available(iOS 13, *)
   func testSHA256ObjcAndSwift() {
     // actual string format we're hashing in SimplyE
     let audiobookId = "urn:librarysimplified.org/terms/id/Overdrive%20ID/2f33f6a1-e645-4acd-b994-92bef5494010"

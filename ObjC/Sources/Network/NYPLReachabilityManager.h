@@ -43,9 +43,10 @@
  Copyright (C) 2016 Apple Inc. All Rights Reserved.
  */
 
+@import Foundation;
+
 #if TARGET_OS_IPHONE
 
-#import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <netinet/in.h>
 
