@@ -37,4 +37,9 @@ class SHA256Tests: XCTestCase {
     XCTAssertEqual(spineKeyHash, cryptoKitHash)
     XCTAssertEqual(rsaUtilsHash, cryptoKitHash)
   }
+
+  func testSHA256() {
+    XCTAssertEqual("967824¬Ó¨⁄€™®©♟♞♝♜♛♚♙♘♗♖♕♔".sha256,
+                   "269b80eff0cd705e4b1de9fdbb2e1b0bccf30e6124cdc3487e8d74620eedf254")
+  }
 }
