@@ -22,3 +22,9 @@ extension String {
     NYPLStringAdditions.sha256forString(self)
   }
 }
+
+extension NSString {
+  @objc public var sha256: String? {
+    NYPLStringAdditions.sha256forString(self as String)
+  }
+}
