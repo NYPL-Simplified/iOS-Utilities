@@ -13,7 +13,7 @@ This is a collection of utilities used at NYPL in the [Simplified](https://githu
 ## Requirements
 
 - Xcode 13
-- iOS 10+
+- iOS 11+
 - Swift 5
 
 ## Integration
