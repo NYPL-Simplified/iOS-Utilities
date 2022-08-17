@@ -26,22 +26,24 @@
 ///
 /// See the [full spec](https://github.com/NYPL-Simplified/Simplified-Bookmarks-Spec)
 /// for more details.
-struct NYPLBookmarkSpec {
-  struct Context {
+import Foundation
+
+public struct NYPLBookmarkSpec {
+  public struct Context {
     /// The key identifying the `Context` section.
     static let key = "@context"
     /// The only possible value for the `Context` section key.
     static let value = "http://www.w3.org/ns/anno.jsonld"
   }
 
-  struct type {
+  public struct type {
     /// The key identifying the `Type` section.
     static let key = "type"
     /// The only possible value for the `Type` section key.
     static let value = "Annotation"
   }
 
-  struct Id {
+  public struct Id {
     /// The key identifying the `Id` section.
     static let key = "id"
     /// The value of the annotation ID.
@@ -49,11 +51,11 @@ struct NYPLBookmarkSpec {
   }
 
   /// See https://github.com/NYPL-Simplified/Simplified-Bookmarks-Spec#bodies.
-  struct Body {
+  public struct Body {
     /// The key identifying the `Body` section.
     static let key = "body"
 
-    struct Time {
+    public struct Time {
       static let key = "http://librarysimplified.org/terms/time"
       /// The `Time` value is a timestamp string formatted per
       /// [RFC 3339](https://tools.ietf.org/html/rfc3339).
@@ -62,7 +64,7 @@ struct NYPLBookmarkSpec {
     }
     let time: Time
 
-    struct Device {
+    public struct Device {
       static let key = "http://librarysimplified.org/terms/device"
       /// Clients that do not have access to an actual DRM device identifier
       /// _SHOULD_ use this value.
@@ -78,7 +80,7 @@ struct NYPLBookmarkSpec {
     /// For example, total book progress info.
     let others: [String: String]?
 
-    init(time: String, device: String, others: [String: String]? = nil) {
+    public init(time: String, device: String, others: [String: String]? = nil) {
       self.time = Time(value: time)
       self.device = Device(value: device)
       self.others = others
@@ -86,7 +88,7 @@ struct NYPLBookmarkSpec {
   }
 
   /// See https://github.com/NYPL-Simplified/Simplified-Bookmarks-Spec#motivations
-  enum Motivation: String {
+  public enum Motivation: String {
     /// The key identifying the `Motivation` section.
     static let key = "motivation"
     /// The keyword identifying an explicit bookmark in a textual search.
@@ -99,14 +101,14 @@ struct NYPLBookmarkSpec {
   }
 
   /// See https://github.com/NYPL-Simplified/Simplified-Bookmarks-Spec#targets
-  struct Target {
+  public struct Target {
     static let key = "target"
 
-    struct Selector {
+    public struct Selector {
       static let key = "selector"
 
       /// The Selector `type` has always a fixed value.
-      struct type {
+      public struct type {
         /// The key identifying the Selector type.
         static let key = "type"
         /// The only possible value for the Selector's `Type` key.
@@ -116,7 +118,7 @@ struct NYPLBookmarkSpec {
       /// The Selector `Value` contains a [locator](https://git.io/JYTyx)
       /// serialized as a JSON string. This type defines the possible
       /// locator's keys, as well as required values.
-      struct Value {
+      public struct Value {
         /// The key identifying the Selector `Value`.
         static let key = "value"
 
@@ -145,6 +147,29 @@ struct NYPLBookmarkSpec {
         /// This is a key related to an optional Selector Value field,
         /// provided for backward compatibility with R1 bookmarks.
         static let legacyLocatorCFIKey = "contentCFI"
+        
+        /// The value for the `locatorTypeKey` field for all audiobook
+        /// locators supported by this spec. This will appear inside
+        /// the `selectorValue` String.
+        static let audiobookLocatorTypeValue = "LocatorAudioBookTime"
+        /// The locator key identifying the part id of the bookmark.
+        /// This key will appear inside the `selectorValue` String.
+        static let audiobookLocatorPartKey = "part"
+        /// The locator key identifying the chapter id of the bookmark.
+        /// This key will appear inside the `selectorValue` String.
+        static let audiobookLocatorChapterKey = "chapter"
+        /// The locator key identifying the title of the chapter.
+        /// This key will appear inside the `selectorValue` String.
+        static let audiobookLocatorTitleKey = "title"
+        /// The locator key identifying the id of the audiobook.
+        /// This key will appear inside the `selectorValue` String.
+        static let audiobookLocatorBookIDKey = "audiobookID"
+        /// The locator key identifying the duration of the chapter.
+        /// This key will appear inside the `selectorValue` String.
+        static let audiobookLocatorDurationKey = "duration"
+        /// The locator key identifying the time offset of the bookmark.
+        /// This key will appear inside the `selectorValue` String.
+        static let audiobookLocatorOffsetKey = "time"
 
         /// A serialized JSON string (its keys and values are escaped)
         /// containing a [locator](https://git.io/JYTyx), e.g.
@@ -156,14 +181,14 @@ struct NYPLBookmarkSpec {
     } //Selector
     let selector: Selector
 
-    struct Source {
+    public struct Source {
       static let key = "source"
       /// Typically the book ID from the OPDS feed.
       let value: String
     }
     let source: Source
 
-    init(bookID: String, selectorValue: String) {
+    public init(bookID: String, selectorValue: String) {
       self.source = Source(value: bookID)
       self.selector = Selector(value: Selector.Value(selectorValue: selectorValue))
     }
@@ -174,13 +199,13 @@ struct NYPLBookmarkSpec {
   let motivation: Motivation
   let target: Target
 
-  init(id: String? = nil,
-       time: Date,
-       device: String,
-       bodyOthers: [String: String]? = nil,
-       motivation: Motivation,
-       bookID: String,
-       selectorValue: String) {
+  public init(id: String? = nil,
+              time: Date,
+              device: String,
+              bodyOthers: [String: String]? = nil,
+              motivation: Motivation,
+              bookID: String,
+              selectorValue: String) {
     self.id = Id(value: id)
     self.body = Body(time: time.rfc3339String, device: device, others: bodyOthers)
     self.motivation = motivation
@@ -190,8 +215,8 @@ struct NYPLBookmarkSpec {
 
 // MARK:- iOS-only Additions
 
-extension NYPLBookmarkSpec.Body {
-  struct BookProgress {
+public extension NYPLBookmarkSpec.Body {
+  public struct BookProgress {
     static let key = "http://librarysimplified.org/terms/progressWithinBook"
 
     /// The `BookProgress` value is a % value ranged [0...1]
@@ -211,10 +236,10 @@ extension NYPLBookmarkSpec.Body {
 
 // MARK:- Utilities
 
-extension NYPLBookmarkSpec {
+public extension NYPLBookmarkSpec {
   /// - returns: A dictionary that can be given to `JSONSerialization` as a
   /// JSON object to be serialized into a binary Data blob.
-  func dictionaryForJSONSerialization() -> [String: Any] {
+  public func dictionaryForJSONSerialization() -> [String: Any] {
     var newBody: [String: Any] = [
       NYPLBookmarkSpec.Body.Time.key: body.time.value,
       NYPLBookmarkSpec.Body.Device.key: body.device.value
@@ -247,6 +272,6 @@ extension NYPLBookmarkSpec {
 
 // MARK:- R1 keys (legacy)
 
-enum NYPLBookmarkR1Key: String {
+public enum NYPLBookmarkR1Key: String {
   case idref
 }
