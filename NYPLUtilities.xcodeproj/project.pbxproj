@@ -10,6 +10,8 @@
 		17123D5227D2B95200088193 /* CwlDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17123D5127D2B95200088193 /* CwlDispatch.swift */; };
 		1756E0F327D97A9100549C2E /* NYPLRepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756E0F227D97A9100549C2E /* NYPLRepeatingTimer.swift */; };
 		1756E0F627DA8AE700549C2E /* NYPLRepeatingTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756E0F527DA8AE600549C2E /* NYPLRepeatingTimerTests.swift */; };
+		17627FBE28DCFE6600E26E78 /* NYPLBookmarkSelectorParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17627FBD28DCFE6600E26E78 /* NYPLBookmarkSelectorParsing.swift */; };
+		17627FC128DCFED600E26E78 /* Float+NYPLAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17627FC028DCFED600E26E78 /* Float+NYPLAdditions.swift */; };
 		177E04FD28A708C800DF7587 /* NYPLBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E04FC28A708C800DF7587 /* NYPLBookmark.swift */; };
 		177E050728AB283100DF7587 /* NYPLBookmarkSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E050628AB283100DF7587 /* NYPLBookmarkSpec.swift */; };
 		7350A8D127694FD6003CCE46 /* NYPLUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7350A8C627694FD6003CCE46 /* NYPLUtilities.framework */; };
@@ -35,6 +37,8 @@
 		17123D5127D2B95200088193 /* CwlDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlDispatch.swift; sourceTree = "<group>"; };
 		1756E0F227D97A9100549C2E /* NYPLRepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYPLRepeatingTimer.swift; sourceTree = "<group>"; };
 		1756E0F527DA8AE600549C2E /* NYPLRepeatingTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYPLRepeatingTimerTests.swift; sourceTree = "<group>"; };
+		17627FBD28DCFE6600E26E78 /* NYPLBookmarkSelectorParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYPLBookmarkSelectorParsing.swift; sourceTree = "<group>"; };
+		17627FC028DCFED600E26E78 /* Float+NYPLAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+NYPLAdditions.swift"; sourceTree = "<group>"; };
 		177E04FC28A708C800DF7587 /* NYPLBookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYPLBookmark.swift; sourceTree = "<group>"; };
 		177E050628AB283100DF7587 /* NYPLBookmarkSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYPLBookmarkSpec.swift; sourceTree = "<group>"; };
 		7350A8C627694FD6003CCE46 /* NYPLUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NYPLUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,11 +87,20 @@
 			path = DispatchSource;
 			sourceTree = "<group>";
 		};
+		17627FBF28DCFE9100E26E78 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				17627FC028DCFED600E26E78 /* Float+NYPLAdditions.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
 		177E04FB28A708B700DF7587 /* Bookmark */ = {
 			isa = PBXGroup;
 			children = (
 				177E04FC28A708C800DF7587 /* NYPLBookmark.swift */,
 				177E050628AB283100DF7587 /* NYPLBookmarkSpec.swift */,
+				17627FBD28DCFE6600E26E78 /* NYPLBookmarkSelectorParsing.swift */,
 			);
 			path = Bookmark;
 			sourceTree = "<group>";
@@ -121,6 +134,7 @@
 		73DE158D2771304A0061D12F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				17627FBF28DCFE9100E26E78 /* Number */,
 				177E04FB28A708B700DF7587 /* Bookmark */,
 				17123D5027D2B91200088193 /* DispatchSource */,
 				73DE158E2771304A0061D12F /* Crypto */,
@@ -295,6 +309,8 @@
 				73DE15972771304A0061D12F /* String+MD5.swift in Sources */,
 				177E04FD28A708C800DF7587 /* NYPLBookmark.swift in Sources */,
 				177E050728AB283100DF7587 /* NYPLBookmarkSpec.swift in Sources */,
+				17627FBE28DCFE6600E26E78 /* NYPLBookmarkSelectorParsing.swift in Sources */,
+				17627FC128DCFED600E26E78 /* Float+NYPLAdditions.swift in Sources */,
 				73DE15962771304A0061D12F /* Data+Base64.swift in Sources */,
 				17123D5227D2B95200088193 /* CwlDispatch.swift in Sources */,
 			);
