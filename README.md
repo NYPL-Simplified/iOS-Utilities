@@ -1,4 +1,5 @@
-[![Build and Unit Tests](https://github.com/NYPL-Simplified/iOS-Utilities/Unit%20Tests/badge.svg)](https://github.com/NYPL-Simplified/iOS-Utilities/actions?query=workflow%3A%22Unit%20Tests%22) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build and Unit Tests](https://github.com/NYPL-Simplified/iOS-Utilities/actions/workflows/unit-testing.yml/badge.svg)](https://github.com/NYPL-Simplified/iOS-Utilities/actions/workflows/unit-testing.yml)
+ [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # Simplified iOS Utilities
 
