@@ -1,26 +1,23 @@
 //
-//  StdLib+NYPLAdditions.swift
-//  Simplified
-//
 //  Created by Ettore Pasquini on 6/17/20.
-//  Copyright © 2020 NYPL. All rights reserved.
+//  Copyright © 2024 The New York Public Library. All Rights Reserved.
 //
 
 import Foundation
 
 infix operator =~= : ComparisonPrecedence
 
-public extension Float {
+public extension Double {
 
   /// Performs equality check minus an epsilon
   /// - Returns: `true` if the numbers differ by less than the epsilon,
   /// `false` otherwise.
-  static func =~= (a: Float, b: Float?) -> Bool {
+  static func =~= (a: Double, b: Double?) -> Bool {
     guard let b = b else {
       return false
     }
 
-    return abs(a - b) < Float.ulpOfOne
+    return abs(a - b) < Double.ulpOfOne
   }
 
   func roundTo(decimalPlaces: Int) -> String {
